@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gentleman's Club | Barbería Profesional & Cuidado Masculino</title>
+    <meta name="description" content="Experimenta el arte del corte clásico y moderno en la mejor barbería de la ciudad. Estilo, tradición y excelencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600&display=swap');
+        
+        :root {
+            --brand-gold: #c5a059;
+            --brand-dark: #121212;
+            --brand-black: #0a0a0a;
+        }
+
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
+        .accent-font { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .bg-gold { background-color: var(--brand-gold); }
+        .text-gold { color: var(--brand-gold); }
+        .border-gold { border-color: var(--brand-gold); }
+        
+        .gold-border-gradient {
+            border: 1px solid transparent;
+            background: linear-gradient(var(--brand-dark), var(--brand-dark)) padding-box,
+                        linear-gradient(to right, var(--brand-gold), #8e6d2c) border-box;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden selection:bg-gold selection:text-black">
+
+    <!-- Navegación -->
+    <header id="header" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-center group">
+                <span class="text-2xl font-bold tracking-[0.3em] brand-font group-hover:text-gold transition-colors">GENTLEMAN'S</span>
+                <span class="text-[10px] tracking-[0.6em] text-gold mt-[-4px]">CLUB BARBERSHOP</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden text-2xl focus:outline-none text-white hover:text-gold">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-10 font-medium text-xs uppercase tracking-[0.2em]">
+                <li><a href="#header" class="hover:text-gold transition-colors border-b border-transparent hover:border-gold pb-1">Inicio</a></li>
+                <li><a href="#servicios" class="hover:text-gold transition-colors border-b border-transparent hover:border-gold pb-1">Servicios</a></li>
+                <li><a href="#nosotros" class="hover:text-gold transition-colors border-b border-transparent hover:border-gold pb-1">Nosotros</a></li>
+                <li><a href="#galeria" class="hover:text-gold transition-colors border-b border-transparent hover:border-gold pb-1">Galería</a></li>
+                <li><a href="#contacto" class="bg-gold text-black px-6 py-2 hover:bg-white transition-all font-bold">Reservar</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-black flex items-center justify-center">
+            <button id="close-menu" class="absolute top-6 right-6 text-3xl text-gold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <ul class="flex flex-col space-y-8 font-bold text-2xl uppercase tracking-widest text-center">
+                <li><a href="#header" class="hover:text-gold transition-colors">Inicio</a></li>
+                <li><a href="#servicios" class="hover:text-gold transition-colors">Servicios</a></li>
+                <li><a href="#nosotros" class="hover:text-gold transition-colors">Nosotros</a></li>
+                <li><a href="#galeria" class="hover:text-gold transition-colors">Galería</a></li>
+                <li><a href="#contacto" class="text-gold">Reserva Cita</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg h-screen flex items-center justify-center text-center px-6 relative">
+            <div class="max-w-4xl z-10">
+                <p class="text-gold accent-font italic text-xl mb-4 tracking-widest">Desde 1998 • Excelencia en Estilo</p>
+                <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight drop-shadow-2xl">Donde la Tradición <br><span class="text-gold">Encuentra el Estilo</span></h1>
+                <p class="text-lg md:text-xl font-light mb-12 text-zinc-300 max-w-2xl mx-auto leading-relaxed">Más que un corte de cabello, una experiencia premium diseñada para el hombre moderno que valora la distinción.</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#contacto" class="bg-gold text-black hover:bg-white font-bold py-5 px-12 rounded-none transition-all shadow-[0_0_20px_rgba(197,160,89,0.3)] brand-font text-sm">
+                        RESERVAR AHORA
+                    </a>
+                    <a href="#servicios" class="bg-transparent border border-white/30 hover:border-gold hover:text-gold font-bold py-5 px-12 rounded-none transition-all brand-font text-sm">
+                        NUESTROS SERVICIOS
+                    </a>
+                </div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <a href="#servicios" class="text-white/50 hover:text-gold transition-colors text-2xl">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Sección de Servicios -->
+        <section id="servicios" class="py-32 bg-black relative">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20">
+                    <span class="text-gold tracking-[0.5em] text-xs font-bold uppercase mb-4 block">Catálogo Elite</span>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6">Nuestros Servicios</h2>
+                    <div class="w-16 h-1 bg-gold mx-auto mb-8"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Servicio 1 -->
+                    <div class="group relative overflow-hidden bg-zinc-900 border border-zinc-800 p-10 hover:border-gold/50 transition-all duration-500">
+                        <div class="mb-8 text-gold text-4xl group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-scissors"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Corte Signature</h3>
+                        <p class="text-zinc-400 mb-6 leading-relaxed">Corte personalizado que incluye lavado, asesoría de imagen y peinado con productos premium.</p>
+                        <div class="text-gold font-bold text-xl mb-4">$35.000</div>
+                        <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                             <i class="fa-solid fa-scissors text-8xl"></i>
+                        </div>
+                    </div>
+
+                    <!-- Servicio 2 -->
+                    <div class="group relative overflow-hidden bg-zinc-900 border border-zinc-800 p-10 hover:border-gold/50 transition-all duration-500">
+                        <div class="mb-8 text-gold text-4xl group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-razor"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Afeitado Clásico</h3>
+                        <p class="text-zinc-400 mb-6 leading-relaxed">Experiencia tradicional con toalla caliente, navaja libre y bálsamos hidratantes exclusivos.</p>
+                        <div class="text-gold font-bold text-xl mb-4">$25.000</div>
+                        <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                             <i class="fa-solid fa-soap text-8xl"></i>
+                        </div>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="group relative overflow-hidden bg-zinc-900 border border-zinc-800 p-10 hover:border-gold/50 transition-all duration-500">
+                        <div class="mb-8 text-gold text-4xl group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Perfilado de Barba</h3>
+                        <p class="text-zinc-400 mb-6 leading-relaxed">Diseño y mantenimiento de barba para resaltar la estructura facial con precisión milimétrica.</p>
+                        <div class="text-gold font-bold text-xl mb-4">$20.000</div>
+                        <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                             <i class="fa-solid fa-mask text-8xl"></i>
+                        </div>
+                    </div>
+
+                    <!-- Servicio 4 -->
+                    <div class="group relative overflow-hidden bg-zinc-900 border border-zinc-800 p-10 hover:border-gold/50 transition-all duration-500">
+                        <div class="mb-8 text-gold text-4xl group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-faucet-drip"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Facial Refresh</h3>
+                        <p class="text-zinc-400 mb-6 leading-relaxed">Tratamiento de limpieza profunda, exfoliación y mascarilla de carbón activado para piel radiante.</p>
+                        <div class="text-gold font-bold text-xl mb-4">$45.000</div>
+                    </div>
+
+                    <!-- Servicio 5 -->
+                    <div class="group relative overflow-hidden bg-zinc-900 border border-zinc-800 p-10 hover:border-gold/50 transition-all duration-500">
+                        <div class="mb-8 text-gold text-4xl group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Color & Camuflaje</h3>
+                        <p class="text-zinc-400 mb-6 leading-relaxed">Técnicas de color especializadas para cobertura de canas o cambios radicales de look.</p>
+                        <div class="text-gold font-bold text-xl mb-4">$60.000</div>
+                    </div>
+
+                    <!-- Servicio 6 -->
+                    <div class="group relative overflow-hidden bg-zinc-900 border border-zinc-800 p-10 hover:border-gold/50 transition-all duration-500">
+                        <div class="mb-8 text-gold text-4xl group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Combo Real</h3>
+                        <p class="text-zinc-400 mb-6 leading-relaxed">Nuestra experiencia definitiva: Corte, barba, facial y bebida de cortesía.</p>
+                        <div class="text-gold font-bold text-xl mb-4">$90.000</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nosotros -->
+        <section id="nosotros" class="py-32 bg-zinc-950">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-20">
+                    <div class="lg:w-1/2 relative group">
+                        <div class="absolute -top-6 -left-6 w-full h-full border-2 border-gold/30 z-0 transition-all group-hover:scale-105"></div>
+                        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=2074" alt="Barber Studio" class="relative z-10 w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gold/10 z-20 pointer-events-none"></div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <span class="text-gold tracking-[0.5em] text-xs font-bold uppercase mb-4 block">Nuestra Historia</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-10">Más que una Barbería, una Hermandad</h2>
+                        <p class="text-zinc-400 text-lg mb-8 leading-relaxed">En <span class="text-gold font-semibold tracking-wider">The Gentleman's Club</span>, entendemos que el cuidado personal es un ritual sagrado. Fundados con la premisa de revivir la barbería clásica para el hombre de hoy.</p>
+                        <p class="text-zinc-400 text-lg mb-12 leading-relaxed">Nuestro equipo de maestros barberos combina décadas de experiencia con las últimas tendencias globales, asegurando que cada cliente salga no solo con un gran corte, sino con una confianza renovada.</p>
+                        
+                        <div class="grid grid-cols-2 gap-8 mb-12">
+                            <div>
+                                <h4 class="text-3xl font-bold text-gold mb-2">25+</h4>
+                                <p class="text-xs uppercase tracking-widest text-zinc-500">Años de Maestría</p>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl font-bold text-gold mb-2">15k</h4>
+                                <p class="text-xs uppercase tracking-widest text-zinc-500">Caballeros Satisfechos</p>
+                            </div>
+                        </div>
+
+                        <a href="#galeria" class="inline-flex items-center text-gold font-bold hover:text-white transition-colors group">
+                            CONOCER AL EQUIPO 
+                            <i class="fa-solid fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería (placeholder for real dynamic gallery) -->
+        <section id="galeria" class="py-32 bg-black">
+            <div class="container mx-auto px-6 text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Nuestros Trabajos</h2>
+                <div class="w-16 h-1 bg-gold mx-auto mb-8"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1621605815841-aa1e0c26da4e?auto=format&fit=crop&q=80&w=800" alt="Corte 1" class="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-110 transition-all duration-500">
+                </div>
+                <div class="aspect-square overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&q=80&w=800" alt="Corte 2" class="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-110 transition-all duration-500">
+                </div>
+                <div class="aspect-square overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1532710093739-94709d7363cd?auto=format&fit=crop&q=80&w=800" alt="Corte 3" class="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-110 transition-all duration-500">
+                </div>
+                <div class="aspect-square overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=800" alt="Corte 4" class="w-full h-full object-cover grayscale hover:grayscale-0 hover:scale-110 transition-all duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto & Reserva -->
+        <section id="contacto" class="py-32 bg-zinc-950 overflow-hidden relative">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-5xl mx-auto gold-border-gradient p-12 md:p-20 bg-zinc-900 shadow-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                        <div>
+                            <h2 class="text-4xl font-bold mb-8">Asegura tu Trono</h2>
+                            <p class="text-zinc-400 mb-10 leading-relaxed">No esperes a que tu estilo se deteriore. Reserva ahora con tu barbero favorito y garantiza el look que mereces.</p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="text-gold py-1"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div>
+                                        <p class="font-bold uppercase tracking-widest text-xs mb-1">Ubicación</p>
+                                        <p class="text-zinc-400">Calle Real de los Caballeros #123, Distrito Central.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="text-gold py-1"><i class="fa-solid fa-clock"></i></div>
+                                    <div>
+                                        <p class="font-bold uppercase tracking-widest text-xs mb-1">Horarios</p>
+                                        <p class="text-zinc-400">Lun - Sáb: 9:00 AM - 8:00 PM<br>Dom: 10:00 AM - 4:00 PM</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="text-gold py-1"><i class="fa-solid fa-phone"></i></div>
+                                    <div>
+                                        <p class="font-bold uppercase tracking-widest text-xs mb-1">Contacto</p>
+                                        <p class="text-zinc-400">+57 (300) 123-4567<br>hola@gentlemansclub.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <form id="booking-form" class="space-y-4">
+                                <div>
+                                    <input type="text" placeholder="NOMBRE COMPLETO" class="w-full bg-black border border-zinc-700 px-6 py-4 focus:outline-none focus:border-gold transition-colors text-white text-xs tracking-widest placeholder:text-zinc-600">
+                                </div>
+                                <div>
+                                    <input type="tel" placeholder="TELÉFONO" class="w-full bg-black border border-zinc-700 px-6 py-4 focus:outline-none focus:border-gold transition-colors text-white text-xs tracking-widest placeholder:text-zinc-600">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <input type="date" class="bg-black border border-zinc-700 px-6 py-4 focus:outline-none focus:border-gold transition-colors text-white text-xs tracking-widest [color-scheme:dark]">
+                                    <select class="bg-black border border-zinc-700 px-6 py-4 focus:outline-none focus:border-gold transition-colors text-white text-xs tracking-widest">
+                                        <option>HORA</option>
+                                        <option>09:00 AM</option>
+                                        <option>10:00 AM</option>
+                                        <option>11:00 AM</option>
+                                        <option>02:00 PM</option>
+                                        <option>04:00 PM</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <select class="w-full bg-black border border-zinc-700 px-6 py-4 focus:outline-none focus:border-gold transition-colors text-white text-xs tracking-widest">
+                                        <option>SELECCIONAR SERVICIO</option>
+                                        <option>Corte Signature</option>
+                                        <option>Afeitado Clásico</option>
+                                        <option>Perfilado de Barba</option>
+                                        <option>Combo Real</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="w-full bg-gold text-black font-bold py-5 mt-4 hover:bg-white transition-all brand-font tracking-widest">
+                                    RESERVAR CITA
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative icon in background -->
+            <div class="absolute -bottom-20 -right-20 opacity-5 pointer-events-none">
+                <i class="fa-solid fa-scissors text-[400px]"></i>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-zinc-800 py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                <div class="flex flex-col items-center md:items-start">
+                    <span class="text-xl font-bold tracking-[0.3em] brand-font mb-2">GENTLEMAN'S</span>
+                    <span class="text-[10px] tracking-[0.6em] text-gold mt-[-8px]">CLUB BARBERSHOP</span>
+                </div>
+                
+                <div class="flex space-x-8">
+                    <a href="#" class="text-zinc-500 hover:text-gold text-xl transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-zinc-500 hover:text-gold text-xl transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-zinc-500 hover:text-gold text-xl transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+
+                <div class="text-zinc-500 text-[10px] uppercase tracking-[0.2em]">
+                    &copy; 2026 The Gentleman's Club. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/95', 'backdrop-blur-sm', 'py-4', 'shadow-2xl', 'border-b', 'border-zinc-800');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.remove('bg-black/95', 'backdrop-blur-sm', 'py-4', 'shadow-2xl', 'border-b', 'border-zinc-800');
+                header.classList.add('py-4');
+            }
+        });
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const menuLinks = mobileMenu.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const hideMenu = () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeMenu.addEventListener('click', hideMenu);
+        menuLinks.forEach(link => link.addEventListener('click', hideMenu));
+
+        // Form Submit
+        document.getElementById('booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Gracias por tu reserva! Te contactaremos en breve para confirmar.');
+        });
+    </script>
+</body>
+</html>
